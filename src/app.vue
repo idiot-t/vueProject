@@ -5,7 +5,9 @@
     <!-- 顶部区域 -->
 
     <!-- 中间的路由 router-view 区域 -->
-    <transition><router-view></router-view></transition>
+    <transition>
+      <router-view></router-view>
+    </transition>
     <!-- 中间的路由 router-view 区域 -->
 
     <!-- 底部的 tab-bar 区域 -->
@@ -24,7 +26,7 @@
         </span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
-      <router-link class="mui-tab-item" to="search">
+      <router-link class="mui-tab-item" to="/search">
         <span class="mui-icon mui-icon-search"></span>
         <span class="mui-tab-label">搜索</span>
       </router-link>
@@ -34,6 +36,17 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      index: "父亲的index",
+      curIndex: 1, //当前组件索引
+      isLeftIn: false,
+      isRightOut: false
+    };
+  },
+  
+};
 </script>
 
 <style lang="scss" scoped>
@@ -41,16 +54,19 @@
   padding-top: 40px;
   overflow: hidden;
 }
-.v-enter{
+.v-enter {
   opacity: 0;
-  transform: translate(100%)
+  transform: translate(100%);
 }
-.v-leave-to{
+.v-leave-to {
   position: absolute;
   opacity: 0;
   transform: translate(-100%);
 }
-.v-enter-active,.v-leave-active{
-  transition: 0.5s;
+.v-enter-active,
+.v-leave-active {
+  transition: 0.4s;
 }
 </style>
+
+
